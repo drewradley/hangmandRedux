@@ -63,21 +63,23 @@ var Word = require("./word.js");
     /////////////////////magic starts here
   function CheckLetter() {
     var newWord = new Word();
+    // var letterZ=newWord =new Letter();
     // console.log(newWord.GameWon)
    if(!gameStarted)return;
   //  console.log(gameData.userGuess)
       if(alphabet.indexOf(gameData.userGuess.toLowerCase())>=0)//if index is -1 it't not in the alphabet array and thus not a letter.
       {
-        if(gameData.userGuesses.indexOf(gameData.userGuess)<0) //if index is -1 it hasn't been guessed yet and is a vaild guess
-        {
-          gameData.userGuesses.push(gameData.userGuess);
+        // var newWord = new Word();
+        // if(gameData.userGuesses.indexOf(gameData.userGuess)<0) //if index is -1 it hasn't been guessed yet and is a vaild guess
+        // {
+        //   //gameData.userGuesses.push(gameData.userGuess);
           
-          newWord.checkLetter(gameData.userGuess);
+        //   newWord.checkLetter(gameData.userGuess);
           
 
-        }
-       
-        gameData.setGUI();
+        // }
+        newWord.checkLetter(gameData.userGuess);
+        // gameData.setGUI();
         
       if(gameData.guesses<1)
       {
@@ -120,12 +122,13 @@ function Inquiring()
     gameData.userGuess=user.letter;
     CheckLetter();
     var newWord = new Word();
-    if(newWord.GameWon)return;
+    var gameWon=newWord.GameWon;
+    if(gameWon)return;
     if(!newWord.GameWon)
     {
-        console.log("Guesses");
-        console.log(gameData.userGuesses.join(" "));
-        console.log("_____________________");
+        // console.log("Guesses");
+        // console.log(gameData.userGuesses.join(" "));
+        // console.log("_____________________");
   }
 
     if(gameData.answerArray.join("") === gameData.computerGuess)return;

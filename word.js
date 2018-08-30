@@ -248,10 +248,15 @@ var computerChoices = [
     "your","yourself","youth","zero","zebra","zipper","zulu"
   ];
 var tempWord="";
-var newLetter = new Letter();  
+var letters = []; 
+// var guesses =[];
 var Word= function(word)
 {
-  
+  // console.log(guesses);
+  var newLetter = new Letter(); 
+
+  this.GameWon=newLetter.GameWon;
+  if(this.GameWon)return;
     this.pickWord = function()
     {
     tempWord=computerChoices[Math.floor(Math.random() * computerChoices.length)];
@@ -261,9 +266,32 @@ var Word= function(word)
     }
     this.checkLetter= function(letter)
     {
+      
+
+      for(var lL=0; lL<letters.length;lL++)
+      {
+        // console.log(letters[lL].letter)
+        if (letter==letters[lL].letter)
+        { 
+          // console.log("Guessed")
+          return; 
+          // console.log(letters[lL].letter+"!")
+        }
+      }
+      var newLetterX = new Letter(); 
+      if(newLetterX.GameWon)return;
       newLetter.checkLetter(this.word, letter);
-      // console.log("word.js "+tempWord)
+      letters.push(newLetter);
+      var guesses="";
+      for(var lL=0; lL<letters.length;lL++)
+      {
+        guesses +=letters[lL].letter;
+        
+      }
+      console.log(guesses);
     }
+    var newLetter = new Letter(); 
+
     this.GameWon=newLetter.GameWon;
    this.word=tempWord;
     
