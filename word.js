@@ -279,6 +279,7 @@ var Word= function(word)
         }
       }
       var newLetterX = new Letter(); 
+      this.GameWon=newLetterX.GameWon;
       if(newLetterX.GameWon)return;
       newLetter.checkLetter(this.word, letter);
       letters.push(newLetter);
@@ -290,10 +291,10 @@ var Word= function(word)
       }
       console.log(guesses);
     }
-    var newLetter = new Letter(); 
+    var newLetterZ = new Letter(); 
 
-    this.GameWon=newLetter.GameWon;
-   this.word=tempWord;
+    this.GameWon=newLetterZ.GameWon;
+    this.word=tempWord;
     
 }
 

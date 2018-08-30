@@ -33,7 +33,7 @@ var Letter= function(letter)
                     console.log("'"+finalAnswer.toUpperCase()+ "' is correct!\nWinner! Winner! Chicken Dinner!");
                     return;
                 }
-                else this.GameWon = false;
+                //else this.GameWon = false;
             }
            else {
                if(answerArray[i]==null)

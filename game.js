@@ -65,7 +65,7 @@ var Word = require("./word.js");
     var newWord = new Word();
     // var letterZ=newWord =new Letter();
     // console.log(newWord.GameWon)
-   if(!gameStarted)return;
+   if(!gameStarted || newWord.GameWon)return;
   //  console.log(gameData.userGuess)
       if(alphabet.indexOf(gameData.userGuess.toLowerCase())>=0)//if index is -1 it't not in the alphabet array and thus not a letter.
       {
@@ -107,8 +107,8 @@ var Word = require("./word.js");
   gameData.StartGame();
 function Inquiring()
   {
-    var newWord = new Word();
-    if(newWord.GameWon)return;
+    var newWordI = new Word();
+    if(newWordI.GameWon)return;
     inquirer.prompt([
     {
       type: "input",
@@ -131,8 +131,12 @@ function Inquiring()
         // console.log("_____________________");
   }
 
-    if(gameData.answerArray.join("") === gameData.computerGuess)return;
-
-    Inquiring();
+  var newWordC = new Word();
+  var gameWonC=newWordC.GameWon;
+  
+  if(!gameWonC)
+    {
+      Inquiring();
+    }
   });
 }
