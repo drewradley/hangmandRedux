@@ -5,7 +5,7 @@ var ActualLetters=[];
 var GuessedLetters=[];
 var GameOver=false;
 var guesses=0;
-var maxG=10;
+var maxG=9;
   var Word= function(word)
   {
     this.gameOver=GameOver;
@@ -313,7 +313,7 @@ var maxG=10;
         GuessedLetters.push(L);
         guesses++;
       }
-      console.log("Guesses:"+ guesses+"\n"+GuessedLetters+"");
+      console.log("Guesses:"+ guesses+"/10"+"\n"+GuessedLetters+"");
       console.log(this.actualLetters.join(" "));
       // console.log(theWord);
       if(theWord==this.actualLetters.join("")||guesses>maxG)
